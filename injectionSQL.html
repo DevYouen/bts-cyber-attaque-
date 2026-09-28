@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Injection SQL</title>
+
+  <style>
+    h1 {
+      color: #2c5f7c;
+      font-family: Georgia, serif;
+      border-bottom: 3px solid #2c5f7c;
+      padding-bottom: 8px;
+    }
+
+    h2 {
+      color: #4a7c96;
+      font-family: Georgia, serif;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 4px;
+    }
+
+    p {
+      color: black;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Injection SQL</h1>
+
+  <h2>Description technique</h2>
+  <p>
+    Un site web stocke ses données (comptes, mots de passe) dans une base de données
+    qu'il interroge avec des requêtes SQL. <br>Si le site colle directement ce que
+    l'utilisateur tape dans la requête sans le vérifier, un attaquant peut y glisser
+    ses propres instructions SQL.<br> La base de données les exécute sans faire la différence.
+  </p>
+
+  <h2>Schéma</h2>
+  <img src="injection_sql_schema.png"width="600">
+
+  <h2>Explication technique</h2>
+  <p>Exemple de code vulnérable :</p>
+  <pre>SELECT * FROM users WHERE nom = 'marie'</pre>
+
+  <p>Si l'attaquant tape <b>' OR '1'='1</b> dans le champ, la requête devient :</p>
+  <pre>SELECT * FROM users WHERE nom = '' OR '1'='1'</pre>
+
+  <p>
+    La condition '1'='1' est toujours vraie, donc la base renvoie tous les comptes
+    au lieu d'un seul.
+  </p>
+
+  <h2>Exemple : TalkTalk (2015)</h2>
+  <p>
+    En 2015, l'opérateur britannique TalkTalk a été victime d'une injection SQL.
+    Les données personnelles de plusieurs centaines de milliers de clients ont été
+    exposées. L'entreprise a reçu une amende de 400 000 £ et plusieurs adolescents
+    ont été arrêtés, ce qui montre qu'une telle attaque ne demande pas de gros moyens.
+  </p>
+
+  <p><i>Réalisé par Ewan Royer, SIO 1</i></p>
+
+</body>
+</html>
