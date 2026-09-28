@@ -1,79 +1,29 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Attaque de l'homme du milieu (MitM)</title>
-    <style>
-		body {
-			margin: 0;
-			padding: 24px;
-			color: #26343a;
-			background: #f1f5f3;
-			font-family: 'Trebuchet MS', sans-serif;
-			line-height: 1.6;
-		}
+<div class="container">
+    <!-- Bouton retour -->
+    <a href="index.html" class="btn-retour">&larr; Retour à l'accueil</a>
 
-		main {
-			max-width: 800px;
-			margin: 0 auto;
-		}
+    <h1>Attaque de l'homme du milieu / Man in the Middle (MitM)</h1>
 
-        h1 {
-            color: #174b45;
-            font-family: Georgia, serif;
-            border-bottom: 2px solid #c6d9d2;
-            padding-bottom: 12px;
-        }
+    <h2>Description technique</h2>
+    <p>Une attaque de l'homme du milieu (MitM) se produit lorsqu'un pirate s'interpose entre deux personnes qui communiquent, sans qu'elles s'en aperçoivent. Il peut alors intercepter les messages et parfois les lire ou les modifier. Même si l'échange est chiffré, le risque demeure si les interlocuteurs ne vérifient pas l'identité associée aux clés publiques ou aux certificats : le pirate peut remplacer une clé par la sienne et se faire passer pour l'autre personne.</p>
 
-        h2 {
-            color: #24756d;
-            font-family: Georgia, serif;
-        }
+    <h2>Image Explicative</h2>
+    <div class="image-container">
+        <img src="IMG/Man_in_the_middle_attack.png" alt="Mallory intercepte les communications entre Alice et Bob">
+    </div>
+    <p>Schéma de l'attaque de l'homme du milieu : Mallory intercepte les communications entre Alice et Bob.</p>
 
-		.image-attack {
-			display: block;
-			width: 100%;
-			max-width: 650px;
-			height: auto;
-			margin: 16px 0;
-			padding: 8px;
-			border: 1px solid #c6d9d2;
-			background: #fff;
-		}
+    <h2>Exemple : Échange normal puis attaque</h2>
+    <p class="intro-note">Cela ne m'est jamais arrivé donc je vais simplement vous expliquer le concept.</p>
+    <p>Lors d'un échange classique, Alice chiffre son message avec la clé publique de Bob. Seul Bob peut le déchiffrer avec sa clé privée.</p>
+    
+    <div class="image-container">
+        <img src="IMG/Asymmetric_cryptography_-_step_2.png" alt="Échange classique de clés publiques entre Alice et Bob">
+    </div>
 
-		.image-example {
-			display: block;
-			width: 100%;
-			max-width: 500px;
-			height: auto;
-			margin: 16px 0;
-			padding: 8px;
-			border: 1px solid #c6d9d2;
-			background: #fff;
-		}
-
-		.intro-note { font-style: italic; font-size: 0.9em; color: #59666a; }
-    </style>
-</head>
-<body>
-	<main>
-		<h1>Attaque de l'homme du milieu / Man in the Middle (MitM)</h1>
-		<h2>Description technique</h2>
-		<p>Une attaque de l'homme du milieu (MitM) se produit lorsqu'un pirate s'interpose entre deux personnes qui communiquent, sans qu'elles s'en aperçoivent. Il peut alors intercepter les messages et parfois les lire ou les modifier. Même si l'échange est chiffré, le risque demeure si les interlocuteurs ne vérifient pas l'identité associée aux clés publiques ou aux certificats : le pirate peut remplacer une clé par la sienne et se faire passer pour l'autre personne.</p>
-
-		<h2>Image Explicative</h2>
-		<img class="image-attack" src="IMG/Man_in_the_middle_attack.png" alt="Mallory intercepte les communications entre Alice et Bob">
-		<p>Schéma de l'attaque de l'homme du milieu : Mallory intercepte les communications entre Alice et Bob</a>.</p>
-
-		<h2>Exemple : Échange normal puis attaque</h2>
-		<p class="intro-note">Cela ne m'est jamais arrivé donc je vais simplement vous expliquer le concept.</p>
-		<p>Lors d'un échange classique, Alice chiffre son message avec la clé publique de Bob. Seul Bob peut le déchiffrer avec sa clé privée.</p>
-		<img class="image-example" src="IMG/Asymmetric_cryptography_-_step_2.png" alt="Échange classique de clés publiques entre Alice et Bob">
-		<ol>
-			<li>Mallory remplace la clé publique de Bob par la sienne.</li>
-			<li>Alice chiffre son message avec la clé de Mallory, qui peut alors le lire ou le modifier.</li>
-			<li>Mallory rechiffre le message avec la clé de Bob et le lui transmet. Alice et Bob peuvent ne rien remarquer.</li>
-		</ol>
-</body>
-</html>
+    <ol>
+        <li>Mallory remplace la clé publique de Bob par la sienne.</li>
+        <li>Alice chiffre son message avec la clé de Mallory, qui peut alors le lire ou le modifier.</li>
+        <li>Mallory rechiffre le message avec la clé de Bob et le lui transmet. Alice et Bob peuvent ne rien remarquer.</li>
+    </ol>
+</div>
